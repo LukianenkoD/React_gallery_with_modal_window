@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import ModalWindow from "./ModalWindow";
 
-function Gallery() {
+function Gallery(props) {
   const [photos, setPhotos] = useState([]);
-  let [width, setWidth] = useState('');
+
 
   useEffect(() => {
     async function getData() {
@@ -19,26 +20,27 @@ function Gallery() {
     getData();
   }, []);
 
-  function changeSize() {
-  
-    setWidth(width = "1200px");
-  }  
 
-
-
+{/* <ModalWindow dat={photos.url}/> */}
   
   return(
+    <>
+     {
     photos.map((photo) => (
-      <div onClick={changeSize}  key={photo.id}>
- 
+      <div   key={photo.id}>
+  
  <div >
-<img style={{borderRadius:"50px"}} width={width} src={photo.url} alt="phot" />
+<img onClick={props.func} style={{borderRadius:"50px"}} src={photo.url} alt="phot" />
  </div>
 
       </div>
          
     ))
+   }
+   
+    </>
   
+ 
 
   )
  

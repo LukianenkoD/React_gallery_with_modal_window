@@ -8,8 +8,8 @@
     margin: 5px;
 }
 
-#modal{
-    display: none;
+.modal{
+    /* display: block; */
     position: fixed;
     width: 100%;
     height: 100%;
@@ -18,7 +18,7 @@
     background-color: rgba(0,0,0,0.404);
 }
 
-#modalContent{
+.modalContent{
     background-color: white;
     margin: 100px auto;
     padding: 20px;
@@ -26,13 +26,13 @@
     width: 80%;
 }
 
-#close{
+.close{
  float: right;
  font-size: 30px;
  color: grey;   
  cursor: pointer;
 }
 
-#close:hover{
+.close:hover{
     color: black;
 }
