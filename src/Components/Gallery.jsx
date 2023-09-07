@@ -2,9 +2,20 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ModalWindow from "./ModalWindow";
 
-function Gallery(props) {
+function Gallery() {
   const [photos, setPhotos] = useState([]);
 
+  const [src, setSrc] = useState(/*'https://via.placeholder.com/600/771796'*/);
+
+  const [block, setBlock] = useState('none')
+
+  function srcCounter(e){
+    let src = e.target.src;
+    setSrc(src);
+    setBlock("block")
+
+  };
+  // console.log(src);
 
   useEffect(() => {
     async function getData() {
@@ -20,8 +31,6 @@ function Gallery(props) {
     getData();
   }, []);
 
-
-{/* <ModalWindow dat={photos.url}/> */}
   
   return(
     <>
@@ -29,15 +38,17 @@ function Gallery(props) {
     photos.map((photo) => (
       <div   key={photo.id}>
   
- <div >
-<img onClick={props.func} style={{borderRadius:"50px"}} src={photo.url} alt="phot" />
+ <div >{
+  <img onClick={srcCounter} style={{borderRadius:"50px"}} src={photo.url} alt="phot" />
+  }
+
  </div>
 
       </div>
          
     ))
    }
-   
+   <ModalWindow src={src} block={block}/>
     </>
   
  
