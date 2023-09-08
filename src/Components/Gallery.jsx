@@ -5,7 +5,7 @@ import ModalWindow from "./ModalWindow";
 function Gallery() {
   const [photos, setPhotos] = useState([]);
 
-  const [src, setSrc] = useState(/*'https://via.placeholder.com/600/771796'*/);
+  const [src, setSrc] = useState();
 
   const [block, setBlock] = useState('none')
 
@@ -15,7 +15,6 @@ function Gallery() {
     setBlock("block")
 
   };
-  // console.log(src);
 
   useEffect(() => {
     async function getData() {
@@ -39,7 +38,7 @@ function Gallery() {
       <div   key={photo.id}>
   
  <div >{
-  <img onClick={srcCounter} style={{borderRadius:"50px"}} src={photo.url} alt="phot" />
+  <img  onClick={srcCounter} style={{borderRadius:"50px"}} src={photo.url} alt="phot" />
   }
 
  </div>
@@ -48,7 +47,7 @@ function Gallery() {
          
     ))
    }
-   <ModalWindow src={src} block={block}/>
+   <ModalWindow src={src} block={block} func={setBlock}/>
     </>
   
  
